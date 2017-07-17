@@ -1,11 +1,91 @@
 <!DOCTYPE html>
+
 <html>
+
 <head>
+
+	<meta charset="utf-8">
 	<title>test</title>
+	<!-- Ligne nécessaire pour l'utilisation du JQuery -->
+	  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+	<script type="text/javascript" src="annuaire.json"></script>
+	<script type="text/javascript" src="annuaire.js"></script>
+
 </head>
+
 <body>
 
-	<p>first commit</p>
+	<div class="global">
+		
+		<h1>Liste des élèves</h1>
+
+		<button id="aperçu" onclick="clicmoi()"> Aperçu </button>
+
+			<ul id="liste"></ul>
+
+			
+
+	</div>
 
 </body>
+
+
+<script type="text/javascript">
+
+
+function clicmoi()
+{
+	var maliste = document.getElementById('liste');
+	console.log(maliste);
+
+	myJson.forEach (function(element)
+	{
+		var maligne = document.createElement("li");
+		maligne.innerHTML = element.nom + " " + element.prenom + ".";
+		maligne.classList.add("eleve");
+		maligne.setAttribute("data-idEleve",element.id);
+		maligne.addEventListener("click", detectClick);
+		maliste.appendChild(maligne);
+		 
+	});
+
+	function detectClick(event)
+	{
+		console.log(this);
+		console.log(event);
+		console.log(event.target);
+		var myTarget = event.target;
+
+		console.log(myTarget.getAttribute("data-idEleve"));
+
+		window.location = "profil.html" + "#" + myTarget.getAttribute("data-idEleve");
+	}
+
+}
+
+
+//Fonction identique avec utilisation du JQuery
+		/*$(document).ready(function() { 	
+              	
+              	$('#aperçu').click(function()
+					{
+						var maliste = document.getElementById('liste');
+						console.log(maliste);
+
+						myJson.forEach (function(element)
+						{
+							var maligne = document.createElement("li");
+							maligne.innerHTML = "Je m'appelle "+ element.nom + "  " + element.prenom;
+
+							maliste.appendChild(maligne);
+
+							 console.log(element);
+							 
+						});
+					});
+                  
+        	 });*/
+
+			</script>
 </html>

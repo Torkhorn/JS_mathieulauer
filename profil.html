@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<title>Profil utilisateur</title>
+	<script type="text/javascript" src="annuaire.js"></script>
+
+</head>
+
+<body>
+
+	<h1>Profil de l'utilisateur séléctionné</h1>
+
+	<ul class="profil"></ul>
+
+	<script type="text/javascript">
+		
+		console.log("je fonctionne");
+
+		var data = myJson;
+		// On recupere la table
+		console.table(data);
+
+		var url = window.location;
+		var eleveId = url.hash;
+		// on enleve le # de l'eleveid
+		eleveId = eleveId.substring(1);
+		console.log(typeof eleveId);
+
+		eleveId = parseFloat(eleveId);
+		console.log(typeof eleveId);
+
+		console.log("Je suis sur la page profil de l'élève avec l'id : " + eleveId);
+
+		
+		var myIndex = data.findIndex(function(i){ return i.id === eleveId });
+		var monUser = data[myIndex];
+		console.log(monUser);
+
+		// 3 méthode pour afficher le contenu de l'élève concerné
+		// var i0 = data.findIndex(i => i.id === eleveId);
+		// var i1 = data.findIndex(function(i){ return i.id === eleveId });
+		// var i2 = data.map(function(e) { return e.id; }).indexOf(eleveId);
+
+		// console.log("i1 : " + i1);
+		// console.log("i2 : " + i2);
+		// console.log(i2);
+
+/*
+		data.forEach(function(item)
+		{
+			if(item.id === parseFloat(eleveId))
+			{
+				console.log("Trouvé élève");
+				console.log(item);
+				break;
+			}
+			else
+			{
+				console.log("Ce n'est pas le bon élève");
+			}
+		});
+		*/
+	</script>
+
+
+
+</body>
+
+
+
+</html>
