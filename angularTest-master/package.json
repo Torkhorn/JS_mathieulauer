@@ -1,0 +1,27 @@
+{
+  "name": "ex1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lleoooell/angularTest.git"
+  },
+  "author": "leo casagrande",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lleoooell/angularTest/issues"
+  },
+  "homepage": "https://github.com/lleoooell/angularTest#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "jade": "^1.11.0",
+    "mongodb": "^2.2.30",
+    "mongoose": "^4.11.4"
+  }
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
+		<script type="text/javascript" src="/data/liste.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			
+			<h1>LISTE IFA</h1>
+			<a id="addNew" class="btn btn-primary pull-right">new</a>
+			<div class="row">
+				<div id="wrap" class="col-sm-8">
+					
+				</div>
+				<div id="formAdd" class="col-sm-4">
+					<div id="myForm" class="display">
+						<form id="newUser" >
+							<div class="form-group">
+								<input type="text" name="nom" placeholder="nom" class="form-control" >
+							</div>
+							<div class="form-group">
+								<input type="text" name="prenom" placeholder="prenom" class="form-control" >
+							</div>
+							<div class="form-group">
+								<input type="text" name="javascript" placeholder="javascript" class="form-control" >
+							</div>
+							<div class="form-group">
+								<input type="text" name="fav_web" placeholder="fav_web" class="form-control" >
+							</div>
+							<div class="form-group">
+								<input type="text" name="fav_web_why" placeholder="fav_web_why" class="form-control" >
+							</div>
+							<div class="form-group">
+								<input type="text" name="fav_app" placeholder="fav_app" class="form-control" >
+							</div>
+							<div class="form-group">
+								<input type="text" name="fav_app_why" placeholder="fav_app_why" class="form-control" >
+							</div>
+							<div class="form-group">
+								<input type="text" name="javascript" placeholder="javascript" class="form-control" >
+							</div>
+							<div class="form-group">
+								<input type="text" name="before_ifa" placeholder="before_ifa" class="form-control" >
+							</div>
+							<div class="form-group">
+								<input type="text" name="why_ifa" placeholder="why_ifa" class="form-control" >
+							</div>
+							<div class="form-group">
+								<input type="email" name="contact_mail" placeholder="contact_mail" class="form-control" >
+							</div>
+						</form>
+						<button type="submit" value="Submit" onclick="return submitForm()">valider</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="/scripts/app.js"></script>
+	</body>
+</html>
+<!-- {
+"id": 0,
+"nom": "BOITEUX",
+"prenom": "Rémi",
+"javascript": "Non",
+"fav_web": "http://motogp.com/fr",
+"fav_web_why": "Le design est agréable et j’y trouve toutes les infos dont j’ai besoin",
+"fav_app": "WEC (World Endurance Championship)",
+"fav_app_why": "Pour y trouver toutes les infos quand je ne peux pas suivre les courses",
+"before_ifa": "Chef de projets SEM",
+"why_ifa": "Pour acquérir des compétences en développement et mieux comprendre les différents langages",
+"contact_mail": "boiteux.remi@gmail.com"
+}, -->

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+
+	<title></title>
+
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script type="text/javascript" src="annuaire.js"></script>
+
+
+</head>
+
+<body>
+
+<form class="form-horizontal" name="monFormulaire"  method="post">
+	
+<fieldset>
+
+	<legend>Nouvel Utilisateur :</legend>
+	<label for="text">Nom:</label>
+	<input type="text" name="nom" id="nom" class="form-control">
+	<label for="text">Prenom:</label>
+	<input type="text" name="prenom" id="prenom" class="form-control">
+	<label for="text">Javascript:</label>
+	<input type="text" name="javascript" id="javascript" class="form-control">
+	<label for="text">Site favori:</label>
+	<input type="text" name="fav_web" id="fav_web" class="form-control">
+	<label for="text">Pourquoi ?:</label>
+	<input type="text" name="fav_web_why" id="fav_web_why" class="form-control">
+	<label for="text">Application favorie:</label>
+	<input type="text" name="fav_app" id="fav_app" class="form-control">
+	<label for="text">Pourquoi ?:</label>
+	<input type="text" name="fav_app_why" id="fav_app_why" class="form-control">
+	<label for="text">Avant l'ifa:</label>
+	<input type="text" name="before_ifa" id="before_ifa" class="form-control">
+	<label for="text">Pourquoi l'ifa:</label>
+	<input type="text" name="why_ifa" id="why_ifa" class="form-control">
+	<label for="text">Email:</label>
+	<input type="text" name="contact" id="contact" class="form-control">
+
+</fieldset>
+
+</form>
+	<input onclick="return valideForm()" type="submit" valie="Submit" class="btn btn-primary">
+
+<br>
+	<button><a href="javascript1.html">Retour liste</a></button>
+
+
+	<script type="text/javascript">
+
+	var data = myJson;
+
+	function valideForm()
+	{
+		
+		
+
+		var id = data.length;
+
+		var nom = document.forms["monFormulaire"]["nom"].value;
+		var prenom = document.forms["monFormulaire"]["prenom"].value;
+		var javascript = document.forms["monFormulaire"]["javascript"].value;
+		var fav_web = document.forms["monFormulaire"]["fav_web"].value;
+		var fav_web_why = document.forms["monFormulaire"]["fav_web_why"].value;
+		var fav_app = document.forms["monFormulaire"]["fav_app"].value;
+		var fav_app_why = document.forms["monFormulaire"]["fav_app_why"].value;
+		var before_ifa = document.forms["monFormulaire"]["before_ifa"].value;
+		var why_ifa = document.forms["monFormulaire"]["why_ifa"].value;
+		var contact = document.forms["monFormulaire"]["contact"].value;
+
+		// var nom = document.getElementById("nom");
+		// var prenom = document.getElementById("prenom");
+		// var javascript = document.getElementById("javascript");
+		// var fav_web = document.getElementById("fav_web");
+		// var fav_web_why = document.getElementById("fav_web_why");
+		// var fav_app = document.getElementById("fav_app");
+		// var fav_app_why = document.getElementById("fav_app_why");
+		// var before_ifa = document.getElementById("before_ifa");
+		// var why_ifa = document.getElementById("why_ifa");
+		// var contact = document.getElementById("contact");
+
+		var newUser = {
+						   "id" : id,
+						   "nom": nom,
+						   "prenom": prenom,
+						   "javascript": javascript,
+						   "fav_web": fav_web,
+						   "fav_web_why": fav_web_why,
+						   "fav_app": fav_app,
+						   "fav_app_why": fav_app_why,
+						   "before_ifa": before_ifa,
+						   "why_ifa": why_ifa,
+						   "contact_mail": contact
+						 };
+
+		console.log(newUser);
+
+		myJson = myJson.push(newUser);
+
+		console.log(myJson);
+
+		var fileSystem= new ActiveXObject("Scripting.FileSystemObject");
+		var monfichier=fileSystem.OpenTextFile("annuaire.js", 8 ,false);
+		monfichier.WriteLine("A que coucou");
+		monfichier.Close();
+	}
+
+	</script>
+
+</body>
+
+</html>

@@ -9,6 +9,7 @@
 	<!-- Ligne nécessaire pour l'utilisation du JQuery -->
 	  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<script type="text/javascript" src="annuaire.json"></script>
 	<script type="text/javascript" src="annuaire.js"></script>
 
@@ -20,11 +21,12 @@
 		
 		<h1>Liste des élèves</h1>
 
-		<button id="aperçu" onclick="clicmoi()"> Aperçu </button>
+		<button id="aperçu" onclick="clicmoi()" class="btn btn-primary"> Aperçu </button>
 
-			<ul id="liste"></ul>
+			<ul id="list-group"></ul>
 
 			
+		<button id="ajout" onclick="ajoutEntree()" class="btn btn-primary">Ajouter une nouvelle entrée</button>
 
 	</div>
 
@@ -36,14 +38,14 @@
 
 function clicmoi()
 {
-	var maliste = document.getElementById('liste');
+	var maliste = document.getElementById('list-group');
 	console.log(maliste);
 
 	myJson.forEach (function(element)
 	{
 		var maligne = document.createElement("li");
 		maligne.innerHTML = element.nom + " " + element.prenom + ".";
-		maligne.classList.add("eleve");
+		maligne.classList.add("list-group-item");
 		maligne.setAttribute("data-idEleve",element.id);
 		maligne.addEventListener("click", detectClick);
 		maliste.appendChild(maligne);
@@ -62,6 +64,11 @@ function clicmoi()
 		window.location = "profil.html" + "#" + myTarget.getAttribute("data-idEleve");
 	}
 
+}
+
+function ajoutEntree()
+{
+	window.location = "ajout.html";
 }
 
 

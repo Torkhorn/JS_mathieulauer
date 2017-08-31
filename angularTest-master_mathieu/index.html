@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-resource.js"></script>
+	<!-- <base href="/JS_mathieulauer/angularTest-master/"> -->
+	<body>
+		<div ng-app="myApp" >
+
+			<li><a href="#!/">Home</a></li>
+			<li><a href="#!/page2">Page2</a></li>
+
+			<div ng-view></div>
+			
+		</div>
+		<script src="./app/myApp.js"></script>
+		<script src="./app/service/eleveService.js"></script>
+		<script src="./app/controller/myCtrl.js"></script>
+		<script src="./app/controller/myCtrl2.js"></script>
+		<script src="./app/controller/profil.ctrl.js"></script>
+		<script src="./app/directive/myDir.js"></script>
+	</body>
+</html>
