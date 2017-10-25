@@ -1,0 +1,20 @@
+{
+  "name": "robottwitter",
+  "version": "1.0.0",
+  "description": "robot traquant des hashtags sur twitter",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mathieu L",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "dotenv": "^4.0.0",
+    "socket.io": "^2.0.3",
+    "twitter": "^1.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.0"
+  }
+}

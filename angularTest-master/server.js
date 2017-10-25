@@ -3,6 +3,8 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Eleve = require('./models/eleve.js');
 var app = express();
+var server = require('http').createServer(app);  
+var io = require('socket.io')(server);
 
 // j'instance la connection mongo 
 var promise = mongoose.connect('mongodb://localhost:27017/ifa', {
@@ -12,8 +14,8 @@ var promise = mongoose.connect('mongodb://localhost:27017/ifa', {
 promise.then(
     () => {
         console.log('db.connected');
-        // je démarre mon serveur node sur le port 3000
-        app.listen(3000, function() {
+        // je démarre mon serveur web node sur le port 3000
+        server.listen(3000, function() {
             console.log('listening on 3000 and database is connected');
         });
     },
@@ -24,6 +26,18 @@ promise.then(
 
 );
 
+
+
+// ecouter les evenements
+io.sockets.on('connection', function (socket) {
+    console.log("un client est connecté");
+
+    socket.emit('monsocket', { hello: "world" });
+  // socket.on('vote', function(msg){
+  //   votes[msg.vote-1].votes++;
+  //   io.sockets.emit('votes', { votes: votes });
+  // })
+});
 // express configs
 // j'utilise bodyparser dans toutes mes routes pour parser les res.body en json
 
@@ -61,6 +75,8 @@ app.use('/app', express.static('./app/'));
 //     // Pass to next layer of middleware
 //     next();
 // });
+
+
 // je renvoie l'index.html
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/index.html')
@@ -138,6 +154,8 @@ app.delete('/api/liste/:id', function(req, res) {
         else{
             console.log(response);
             console.log("deleted");
+            io.sockets.emit('eleveDelete', response);
+
             res.send(200);
 
         }
@@ -194,4 +212,3 @@ app.put('/api/liste/:id', function(req, res) {
     // res.send(200);
 
 });
-
